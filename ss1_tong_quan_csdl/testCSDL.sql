@@ -21,4 +21,4 @@ SET SQL_SAFE_UPDATES = 0;
 SET SQL_SAFE_UPDATES = 1;
 update student set name ='chánh3' where id = 3;
 delete from student where id =4;
-drop database c0523l1_jv103;
+drop database c0225l1_jv103;
