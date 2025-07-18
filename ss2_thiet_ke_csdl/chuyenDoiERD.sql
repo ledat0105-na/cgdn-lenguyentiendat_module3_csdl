@@ -1,5 +1,5 @@
-create database if not exists quanLyBanHang;
-use quanLyBanHang;
+create database if not exists chuyenDoiERD;
+use chuyenDoiERD;
 
 create table phieuxuat (
     sopx varchar(10) primary key,

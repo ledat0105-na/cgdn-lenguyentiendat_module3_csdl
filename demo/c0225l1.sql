@@ -70,3 +70,49 @@ select* from student;
 select* from jame;
 select* from instructor;
 select * from instructor_class;
+
+-- + Câu 1. Lấy ra thông tin các học viên, và cho biết các học viên đang theo học lớp nào.
+select * from student
+    inner join class on student.class_id = class.id;
+-- + Câu 2. Lấy ra thông tin các học viên, và cho biết các học viên đang theo học lớp nào và cả các bạn đã đăng ký nhưng chưa có lớp học.
+select * from student
+    left join class on student.class_id = class.id;
+-- + Câu 3. Lấy thông tin của các học viên tên “Hai” và 'Huynh’.
+select * from student
+where
+	student.name like '%hai' or student.name like '%huynh';
+-- + Câu 4. Lấy ra học viên có điểm lớn hơn 5 .
+select * from student
+where 
+	(point > 5);
+-- + Câu 5. Lấy ra học viên có họ là “nguyen”
+select * 
+from student
+where
+	student.name like 'nguyen%';
+-- + Câu 6. Thông kế số lượng học sinh theo từng loại điểm.
+select student.point, count(*) as total_students from student
+group by
+    student.point;
+-- + Câu 7 . Thông kế số lượng học sinh theo điểm và điểm phải lớn hơn 5
+select student.name, student.point
+from student
+where
+    student.point > 5;
+-- + Câu 8. Thông kế số lượng học sinh theo điểm lớn hơn 5 và chỉ hiện thị với số lượng>=2
+select student.point, count(*) as total_students
+from student
+where
+    student.point > 5
+group by
+    student.point
+having
+    count(*) >= 2;
+-- + Câu 9. Lấy ra danh sách học viên của lớp c1121g1 và sắp xếp tên học viên theo alphabet. 
+select student.id, student.name, student.birthday, student.point
+from student
+    inner join class on student.class_id = class.id
+where
+    class.name = 'c1121g1'
+order by
+    student.name asc;
