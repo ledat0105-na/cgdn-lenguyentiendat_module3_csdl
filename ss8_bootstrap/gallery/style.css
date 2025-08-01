@@ -1,0 +1,20 @@
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.gallery .card {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.description {
+    text-align: center;
+    padding: 10px;
+}
