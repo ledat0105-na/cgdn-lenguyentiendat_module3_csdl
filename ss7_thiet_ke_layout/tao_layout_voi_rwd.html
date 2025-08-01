@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 Column Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .top-menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .logo {
+            font-weight: bold;
+        }
+
+        .nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: gray;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .nav a:hover{
+            color: white;
+            background-color: gray;
+        }
+
+        .login a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .content {
+            display: flex;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .left {
+            width: 150px;
+            background-color: #f1f1f1;
+            padding: 15px;
+        }
+
+        .left a {
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: darkblue;
+        }
+
+        .center {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            margin: 0 15px;
+            min-height: 300px;
+        }
+
+        .right {
+            width: 150px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ads {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="top-menu">
+    <div class="logo">Logo</div>
+    <div class="nav">
+        <a class="active" href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="login">
+        <a href="#"><span>&#x1f511;</span>Login</a>
+    </div>
+</div>
+
+<div class="content">
+    <div class="left">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+    </div>
+
+    <div class="center">
+        <h2>Welcome</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+            ut aliquip ex ea commodo consequat.</p>
+        <hr>
+        <h2>Test</h2>
+        <p>Lorem ipsum...</p>
+    </div>
+
+    <div class="right">
+        <div class="ads">ADS</div>
+        <div class="ads">ADS</div>
+    </div>
+</div>
+
+<div class="footer">Footer Text</div>
+
+</body>
+</html>

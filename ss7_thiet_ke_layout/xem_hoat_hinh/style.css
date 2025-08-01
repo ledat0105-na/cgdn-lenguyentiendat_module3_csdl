@@ -1,0 +1,72 @@
+body {
+    padding-top: 1rem;
+}
+.video-title {
+    font-weight: bold;
+}
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+.nav-link {
+    padding: 0.5rem 1rem;
+}
+.video-thumb img {
+    width: 100%;
+    height: auto;
+}
+.video-thumb small {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #000;
+    padding: 0 10px;
+    font-weight: 500;
+}
+.menu-link:hover {
+    text-decoration: underline;
+}
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+.border-bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+body {
+    padding-top: 130px;
+}
+
+.fixed-top {
+    z-index: 1030;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Giao diện menu */
+.menu-link {
+    text-decoration: none;
+    color: #000;
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+.menu-link:hover {
+    text-decoration: underline;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #ccc !important;
+}
+
+.border-top {
+    border-top: 1px solid #ccc !important;
+}
