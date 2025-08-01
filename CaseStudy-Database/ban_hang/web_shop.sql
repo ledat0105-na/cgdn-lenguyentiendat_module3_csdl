@@ -2,8 +2,8 @@ create database if not exists webshop;
 use webshop;
 
 create table vi_tri (
-  ma_vi_tri int primary key,
-  ten_vi_tri varchar(45)
+    ma_vi_tri int primary key,
+    ten_vi_tri varchar(45)
 );
 
 create table nguoi_dung (
@@ -15,7 +15,8 @@ create table nguoi_dung (
     so_dien_thoai varchar(20),
     dia_chi varchar(255),
     vai_tro enum('admin', 'staff', 'customer') default 'customer',
-    ngay_tao datetime default current_timestamp
+    ngay_tao datetime default current_timestamp,
+    ma_vi_tri int,
     foreign key (ma_vi_tri) references vi_tri(ma_vi_tri)
 );
 
@@ -55,7 +56,7 @@ create table don_hang (
     foreign key (ma_nguoi_dung) references nguoi_dung(ma_nguoi_dung),
     foreign key (ma_khuyen_mai) references khuyen_mai(ma_khuyen_mai)
 );
-nguoi_dung
+
 create table chi_tiet_don_hang (
     ma_don_hang int,
     ma_san_pham int,
