@@ -9,4 +9,6 @@ public interface IUserService {
     User getUserById(int id);
     void insertUser(User user) throws SQLException;
     List<User> getAllUsers();
+
+    void addUserTransaction(User user);
 }

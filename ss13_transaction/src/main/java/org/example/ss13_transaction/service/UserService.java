@@ -24,4 +24,10 @@ public class UserService implements IUserService {
     public List<User> getAllUsers() {
         return iUserRepository.selectAllUsers();
     }
+
+    @Override
+    public void addUserTransaction(User user) {
+        UserRepository.addUserTransaction(user);
+    }
+
 }

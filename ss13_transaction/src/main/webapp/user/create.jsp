@@ -17,6 +17,9 @@
     Country: <input type="text" name="country"><br>
     <input type="submit" value="Save">
 </form>
+<form>
+    <a href="user/createTransaction.jsp">Thêm User Transaction (Test Rollback)</a>
+</form>
 </body>
 </html>
 

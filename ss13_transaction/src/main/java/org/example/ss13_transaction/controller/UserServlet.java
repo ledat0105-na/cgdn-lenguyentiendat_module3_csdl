@@ -70,6 +70,14 @@ public class UserServlet extends HttpServlet {
                     throw new ServletException(e);
                 }
                 break;
+            case "addTransaction":
+                User userTx = new User(request.getParameter("name"),
+                        request.getParameter("email"),
+                        request.getParameter("country"));
+                userService.addUserTransaction(userTx);
+                response.sendRedirect("/users");
+                break;
+
         }
     }
 
