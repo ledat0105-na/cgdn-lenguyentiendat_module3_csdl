@@ -72,7 +72,6 @@ public class UserRepository implements IUserRepository {
             conn = BaseRepository.getConnectDB();
             conn.setAutoCommit(false);
 
-            // Câu lệnh 1: thêm user
             String sqlInsert = "INSERT INTO users (name, email, country) VALUES (?, ?, ?)";
             pstmt1 = conn.prepareStatement(sqlInsert);
             pstmt1.setString(1, user.getName());
@@ -80,7 +79,6 @@ public class UserRepository implements IUserRepository {
             pstmt1.setString(3, user.getCountry());
             pstmt1.executeUpdate();
 
-            // Câu lệnh 2: cố tình tạo lỗi SQL (ví dụ: chèn vào cột không tồn tại)
             String sqlError = "INSERT INTO users (name, email, country, invalid_column) VALUES (?, ?, ?, ?)";
             pstmt2 = conn.prepareStatement(sqlError);
             pstmt2.setString(1, "Test");
@@ -89,14 +87,13 @@ public class UserRepository implements IUserRepository {
             pstmt2.setString(4, "Lỗi nè");
             pstmt2.executeUpdate();
 
-            // Nếu cả 2 thành công thì commit
             conn.commit();
 
         } catch (SQLException e) {
             if (conn != null) {
                 try {
                     System.out.println("Rollback do lỗi: " + e.getMessage());
-                    conn.rollback(); // Lỗi thì rollback
+                    conn.rollback();
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
