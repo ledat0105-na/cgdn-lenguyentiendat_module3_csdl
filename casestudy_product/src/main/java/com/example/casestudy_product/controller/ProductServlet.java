@@ -96,16 +96,36 @@ public class ProductServlet extends HttpServlet {
         request.getRequestDispatcher("/product/view.jsp").forward(request, response);
     }
 
-    private void createProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String description = request.getParameter("description");
-        String manufacturer = request.getParameter("manufacturer");
-        int categoryId = Integer.parseInt(request.getParameter("category"));
+    private void createProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            String name = request.getParameter("name");
+            double price = Double.parseDouble(request.getParameter("price"));
+            String description = request.getParameter("description");
+            String manufacturer = request.getParameter("manufacturer");
+            String categoryParam = request.getParameter("category");
 
-        Product product = new Product(name, price, description, manufacturer, categoryId);
-        productService.save(product);
-        response.sendRedirect("/products");
+            if (name == null || name.isEmpty()
+                    || description == null || description.isEmpty()
+                    || manufacturer == null || manufacturer.isEmpty()
+                    || categoryParam == null || categoryParam.isEmpty()) {
+
+                request.setAttribute("error", "Vui lòng điền đầy đủ thông tin!");
+                request.setAttribute("categories", categoryService.findAll());
+                request.getRequestDispatcher("/product/create.jsp").forward(request, response);
+                return;
+            }
+
+            int categoryId = Integer.parseInt(categoryParam);
+            Category category = categoryService.findById(categoryId);
+            Product product = new Product(name, price, description, manufacturer, category);
+
+            productService.save(product);
+            response.sendRedirect("/products");
+        } catch (NumberFormatException e) {
+            request.setAttribute("error", "Dữ liệu không hợp lệ: " + e.getMessage());
+            request.setAttribute("categories", categoryService.findAll());
+            request.getRequestDispatcher("/product/create.jsp").forward(request, response);
+        }
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -116,7 +136,8 @@ public class ProductServlet extends HttpServlet {
         String manufacturer = request.getParameter("manufacturer");
         int categoryId = Integer.parseInt(request.getParameter("category"));
 
-        Product product = new Product(id, name, price, description, manufacturer, categoryId);
+        Category category = categoryService.findById(categoryId); // Lấy Category từ ID
+        Product product = new Product(id, name, price, description, manufacturer, category);
         productService.update(id, product);
         response.sendRedirect("/products");
     }
@@ -129,4 +150,5 @@ public class ProductServlet extends HttpServlet {
         request.setAttribute("categories", categories);
         request.getRequestDispatcher("/product/list.jsp").forward(request, response);
     }
+
 }

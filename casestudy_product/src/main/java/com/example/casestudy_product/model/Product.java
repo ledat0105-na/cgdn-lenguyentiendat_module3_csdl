@@ -1,39 +1,36 @@
 package com.example.casestudy_product.model;
 
-
 public class Product {
     private int id;
     private String name;
     private double price;
     private String description;
     private String manufacturer;
-    private int categoryId;
-
+    private Category category; // Đối tượng Category (không phải category_id)
 
     public Product() {
     }
 
+    // Constructor dùng cho tạo mới (create)
+    public Product(String name, double price, String description, String manufacturer, Category category) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.manufacturer = manufacturer;
+        this.category = category;
+    }
 
-    public Product(int id, String name, double price, String description, String manufacturer, int categoryId) {
+    // Constructor đầy đủ dùng cho cập nhật hoặc lấy từ DB
+    public Product(int id, String name, double price, String description, String manufacturer, Category category) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.description = description;
         this.manufacturer = manufacturer;
-        this.categoryId = categoryId;
+        this.category = category;
     }
 
-
-    public Product(String name, double price, String description, String manufacturer, int categoryId) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.manufacturer = manufacturer;
-        this.categoryId = categoryId;
-    }
-
-
-    // Getters and Setters
+    // Getter & Setter đầy đủ...
     public int getId() {
         return id;
     }
@@ -74,11 +71,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
